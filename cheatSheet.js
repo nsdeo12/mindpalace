@@ -1,0 +1,26 @@
+///////////////////////////////////////////////////////////////////////
+/////////////////////dynamic array declaration starts//////////////////
+///////////////////////////////////////////////////////////////////////
+
+var prompt = require('prompt');
+var da= function da() {
+    let dynamicArray = [];
+    // prompt.get('input', function (input) {
+    //     console.log("input",input);
+
+        for (var item = 1; item < 9; item++) {
+            dynamicArray.push(item);
+            
+        }
+        console.log("dynamic array",dynamicArray.length);
+    };
+
+
+da();
+///////////////////////////////////////////////////////////
+/////////////////////dynamic array declaration ends////////////////////
+///////////////////////////////////////////////////////////////////////
+
+//length of Array
+// var xlength = da.dynamicArray.length;
+// console.log("xlength",xlength);
