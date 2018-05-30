@@ -1,0 +1,153 @@
+/**
+ * @author Nilakantha Singh Deo
+ * @email nsinghdeo@protonmail.com
+ * @create date 2018-05-22 05:05:34
+ * @modify date 2018-05-22 02:37:16
+ * @desc [https://github.com/nsdeo12]
+*/
+
+refer documentations
+https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
+
+////////////////////////////////////////////////////////////////
+//////////////install and all///////////////////////////////////
+////////////////////////////////////////////////////////////////
+//install typescript
+npm install -g typescript
+//check the version
+tsc -v
+//create the file
+touch tsconfig.json
+//for compilation
+tsc first.ts    (wildcard>tsc *.ts)
+//keep a watcher to watch the changes in the js file
+tsc first.ts --watch
+
+
+//////////////////////////////////////////////
+/////////////pupose of tsconfig.json//////////
+//////////////////////////////////////////////
+https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
+
+tsconfig.json file in a directory indicates that the directory is the root of a TypeScript project.
+Using tsconfig.json
+
+A) By invoking tsc with no input files, in which case the compiler searches for the tsconfig.json file 
+    starting in the current directory and continuing up the parent directory chain.
+B) By invoking tsc with no input files and a --project (or just -p) command line option that specifies
+    the path of a directory containing a tsconfig.json file, or a path to a valid .json file containing
+    the configurations.
+C) When input files are specified on the command line, tsconfig.json files are ignored.
+D) Using the "files" property
+example:
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true
+    },
+    "files": [
+        "core.ts",
+        "sys.ts",
+        "types.ts",
+       
+    ]
+}
+
+E) using include and exclude properties
+{
+    "compilerOptions": {
+        "module": "system",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "outFile": "../../built/local/tsc.js",
+        "sourceMap": true
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}
+
+F) compilerOptions(what to compile and what to leave?)
+
+If typeRoots is specified, only packages under typeRoots will be included. For example:
+
+{
+   "compilerOptions": {
+       "typeRoots" : ["./typings"]
+   }
+}
+This config file will include all packages under ./typings, and no packages from ./node_modules/@types.
+
+
+If types is specified, only packages listed will be included. For instance:
+
+{
+   "compilerOptions": {
+       "types" : ["node", "lodash", "express"]
+   }
+}
+This tsconfig.json file will only include ./node_modules/@types/node, ./node_modules/@types/lodash and ./node_modules/@types/express. Other packages under node_modules/@types/* will not be included.
+
+A types package is a folder with a file called index.d.ts or a folder with a package.json that has a types field.
+
+Specify "types": [] to disable automatic inclusion of @types packages.
+
+
+G) Configuration inheritance with extends
+
+A tsconfig.json file can inherit configurations from another file using the extends property.
+
+The extends is a top-level property in tsconfig.json (alongside compilerOptions, files, include, and exclude). extends’ value is a string containing a path to another configuration file to inherit from.
+
+The configuration from the base file are loaded first, then overridden by those in the inheriting config file. If a circularity is encountered, we report an error.
+
+files, include and exclude from the inheriting config file overwrite those from the base config file.
+
+All relative paths found in the configuration file will be resolved relative to the configuration file they originated in.
+
+For example:
+
+configs/base.json:
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "strictNullChecks": true
+  }
+}
+
+tsconfig.json:
+
+{
+  "extends": "./configs/base",
+  "files": [
+    "main.ts",
+    "supplemental.ts"
+  ]
+}
+
+tsconfig.nostrictnull.json:
+
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "strictNullChecks": false
+  }
+}
+H) compileOnSave
+Setting a top-level property compileOnSave signals to the IDE to generate all files for a given tsconfig.json upon saving.
+
+{
+   "compileOnSave": true,
+   "compilerOptions": {
+       "noImplicitAny" : true
+   }
+}
+This feature is currently supported in Visual Studio 2015 with TypeScript 1.8.4 and above, and atom-typescript plugin.

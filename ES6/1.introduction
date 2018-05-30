@@ -1,0 +1,62 @@
+____________
+Introduction
+++++++++++++
+ES6 – also known as Harmony, es-next, ES2015 – is the latest finalized specification of the language
+Future versions of the specification will follow the ES[YYYY] pattern, e.g ES2016 for ES7
+Starting with ES2016 (ES7), we should start using the ES[YYYY] pattern to refer to newer versions
+_______
+Tooling
++++++++
+To get ES6 working today, you need a JavaScript-to-JavaScript transpiler
+
+Babel (a transpiler) has a killer feature: human-readable output
+
+Use babel to transpile ES6 into ES5 for static builds
+
+Use babelify to incorporate babel into your Gulp, Grunt, or npm run build process
+
+Use Node.js v4.x.x or greater as they have decent ES6 support baked in, thanks to v8
+
+Use babel-node with any version of node, as it transpiles modules into ES5
+
+
+_________________________________________
+Need of  discipline and bundling packages
++++++++++++++++++++++++++++++++++++++++++
+Unit tests to ensure modifications to your code don’t break existing functionality
+
+Linting to ensure consistent coding style free of errors
+
+Production builds that differ from development builds
+
+As the webpage makes a lot of asynchronous requests across js,css and html type of files the web app's performance
+degrades heavily.This can be addressed by bundling files together.
+In which case the following comes into picture.
+
+Webpack,
+Browserify,
+Gulp,
+Grunt,
+Babel(Babel is Traceur and 6to5 combined),
+Babelify (mix Browserify and Babel to get babelify)
+
+
+
+the result>>>>You’re only requesting a single bundled JS and CSS file rather than hundreds of individual ones.
+
+_________________________________________
+            FYI
+=========================================
+
+
+______________________________________________________
+source-to-source compiler, transcompiler or transpiler 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Transcompilers may either keep translated code as close to the source code as possible to ease development and debugging 
+of the original source code, or may change the structure of the original code so much that the translated code does not
+look like the source code.[2] There are also debugging utilities that map the transpiled source code back to the
+original code; for example, the JavaScript Source Map[3] standard allows mapping of the JavaScript code executed by a 
+web browser back to the original source in a transpiled-to-JavaScript language.
+
+
+
