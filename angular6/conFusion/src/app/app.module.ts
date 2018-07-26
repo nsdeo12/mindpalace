@@ -5,7 +5,9 @@ import { NgModule } from '@angular/core';
 //import {MaterialModule} from '@angular/material'; as the material library is growing no need to import
 //all the icons or modules which may make it slow to load
 //applied materials starts
-import { MatToolbarModule } from '@angular/material'
+import { 
+  MatToolbarModule,
+  MatListModule } from '@angular/material'
 //applied materials ends
 
 
@@ -15,13 +17,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import 'hammerjs';
 import { AppComponent } from './app.component';
+import { MenuComponent } from './menu/menu.component';
 
-const MATERIAL_MODULES=[
-  MatToolbarModule
-]
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ const MATERIAL_MODULES=[
     HttpModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-MATERIAL_MODULES
+MatToolbarModule,
+MatListModule
 
   ],
   
