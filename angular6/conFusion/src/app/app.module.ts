@@ -7,7 +7,10 @@ import { NgModule } from '@angular/core';
 //applied materials starts
 import { 
   MatToolbarModule,
-  MatListModule } from '@angular/material'
+  MatListModule ,
+  MatGridListModule
+
+} from '@angular/material'
 //applied materials ends
 
 
@@ -32,7 +35,8 @@ import { MenuComponent } from './menu/menu.component';
     BrowserAnimationsModule,
     FlexLayoutModule,
 MatToolbarModule,
-MatListModule
+MatListModule,
+MatGridListModule
 
   ],
   
