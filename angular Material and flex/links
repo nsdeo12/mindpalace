@@ -25,7 +25,23 @@ https://theinfogrid.com/tech/developers/angular/angular-flex-better-than-bootstr
 
 
 
-
+example:
+bootstrap vs flex
+________________________________________________________________________________________________________________________________
+In bootstrap:
+--------------------------------------------------------
+<div class="row" >
+<div class="col-sm-6" ></div>
+<div class="col-sm-4" ></div>
+<div class="col-sm-2" ></div>
+</div>
+In Angular flex:
+--------------------------------------------------------
+<div flex fxLayout="row">
+<div fxFlex="50" ></div>
+<div fxFlex="33" ></div>
+<div fxFlex="17" ></div>
+</div>
 
 
 
