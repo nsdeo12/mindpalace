@@ -8,7 +8,8 @@ import { NgModule } from '@angular/core';
 import { 
   MatToolbarModule,
   MatListModule ,
-  MatGridListModule
+  MatGridListModule,
+  MatCardModule
 
 } from '@angular/material'
 //applied materials ends
@@ -36,7 +37,8 @@ import { MenuComponent } from './menu/menu.component';
     FlexLayoutModule,
 MatToolbarModule,
 MatListModule,
-MatGridListModule
+MatGridListModule,
+MatCardModule,
 
   ],
   
