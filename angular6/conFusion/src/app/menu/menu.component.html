@@ -1,11 +1,18 @@
-<div class="container" fxLayout="row" fxLayoutGap="10px">
-    <mat-list fxFlex >
-        <mat-list-item *ngFor="let dish of dishes">
-            <img matListAvatar src={{dish.image}} alt="{{dish.name}}">
-            <h1 matLine>{{dish.name}}</h1>
-            <p matLine>{{dish.description}}</p>
-        </mat-list-item>
-    </mat-list>
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+  <div fxFlex>
+    
+  </div>
+  <div fxFlex>
+    <mat-grid-list cols="4" rowHeight="4:1" fxFlex>
+      <mat-grid-tile *ngFor="let dish of dishes">
+          <mat-grid-tile-header>
+                {{dish.name}}
+          </mat-grid-tile-header>
+        <img matListAvatar src={{dish.image}} alt="{{dish.name}}">
+        <!-- <h1 matLine>{{dish.name}}</h1> -->
+        <p matLine>{{dish.description}}</p>
+      </mat-grid-tile>
+    </mat-grid-list>
 
-
+  </div>
 </div>
