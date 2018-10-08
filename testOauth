@@ -1,0 +1,56 @@
+var querystring = require('querystring');
+var http = require('http');
+var express = require('express');
+var bodyparser = require('body-parser');
+
+var app = express();
+app.use(bodyparser.json());
+const postData = querystring.stringify({
+  grant_type: "refresh_token",
+  client_id: "c86743d0-b063-466c-b891-10e1f88ce0be",
+  client_secret: "42189dbf-5066-4afd-8c37-83718b59f69d",
+  refresh_token: "ruHNlFPXGdRuBfc3dwgJc3Qx8pXJV5OV8nyN08FMEqOkS1"
+});
+
+app.get('/', function (request, response) {
+
+  const options = {
+    hostname: 'api8.ibmmarketingcloud.com',
+    port: null,
+    path: '/oauth/token',
+    method: 'POST',
+    headers: {
+      "cache-control": "no-cache",
+      "content-type": "application/x-www-form-urlencoded"
+    }
+  };
+
+
+  const req = http.request(options, (res) => {
+    console.log(`STATUS: ${res.statusCode}`);
+    console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+    res.setEncoding('utf8');
+    res.on('data', (chunk) => {
+      console.log(`BODY: ${chunk}`);
+      const data1=JSON.parse(chunk);
+      
+      console.log("data1",data1.access_token);
+      response.send(data1.access_token);
+    });
+    res.on('end', () => {
+      console.log('No more data in response.');
+    });
+  });
+
+  req.on('error', (e) => {
+    console.error(`problem with request: ${e.message}`);
+  });
+
+  // write data to request body
+  req.write(postData);
+  
+  req.end();
+
+});
+
+app.listen(3030, console.log("app starting at 3030"));
